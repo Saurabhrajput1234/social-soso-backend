@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require('dotenv').config();
 require("./db/conn");
 const router = require('./routes/router');
 const cors = require("cors");
@@ -15,6 +16,6 @@ app.use(cors());
 app.use(cookiparser());
 app.use(router);
 
-app.listen(port,()=>{
+app.listen(process.env.PORT,()=>{
   console.log(`server start at port no :${port}`)
 })
